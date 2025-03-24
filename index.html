@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>点击数字增加</title>
+    <title>导航</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-size: 3rem;
             font-family: Arial, sans-serif;
-            cursor: pointer;
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: blue;
         }
     </style>
 </head>
-<body onclick="increaseNumber()">
-    <div id="number">0</div>
-    <script>
-        let count = 0;
-        function increaseNumber() {
-            count++;
-            document.getElementById('number').innerText = count;
-        }
-    </script>
+<body>
+    <ul>
+        <li><a href="CenteredLayoutCalculator.html">居中排版计算器</a></li>
+    </ul>
 </body>
 </html>
