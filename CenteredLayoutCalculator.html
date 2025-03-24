@@ -1,1 +1,62 @@
-test
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本框内容拷贝</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        textarea, input {
+            width: 300px;
+            margin: 5px 0;
+            padding: 5px;
+        }
+        textarea {
+            height: 100px;
+        }
+        button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 1rem;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>文本框内容拷贝</h1>
+    <div class="container">
+        <div>
+            <h2>输入内容</h2>
+            <textarea id="inputText1" placeholder="输入多行文本..."></textarea>
+            <input type="text" id="inputField1" placeholder="输入单行文本 1">
+            <input type="text" id="inputField2" placeholder="输入单行文本 2">
+            <input type="text" id="inputField3" placeholder="输入单行文本 3">
+            <input type="text" id="inputField4" placeholder="输入单行文本 4">
+            <input type="text" id="inputField5" placeholder="输入单行文本 5">
+            <button onclick="copyContent()">拷贝内容</button>
+        </div>
+        <div>
+            <h2>拷贝结果</h2>
+            <textarea id="outputText" readonly placeholder="这里将显示拷贝的内容..."></textarea>
+        </div>
+    </div>
+    <script>
+        function copyContent() {
+            let content = document.getElementById("inputText1").value + "\n";
+            for (let i = 1; i <= 5; i++) {
+                content += document.getElementById("inputField" + i).value + "\n";
+            }
+            document.getElementById("outputText").value = content;
+        }
+    </script>
+</body>
+</html>
