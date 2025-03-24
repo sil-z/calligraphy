@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>导航</title>
+    <title>sil的个人网站</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #555;
         }
         ul {
             list-style-type: none;
             padding: 0;
+            display: inline-block;
+            text-align: left;
         }
         li {
             margin: 10px 0;
@@ -21,11 +32,22 @@
             font-size: 1.5rem;
             color: blue;
         }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
     </style>
 </head>
 <body>
-    <ul>
-        <li><a href="CenteredLayoutCalculator.html">居中排版计算器</a></li>
-    </ul>
+    <div class="container">
+        <h1></h1>
+        <h2>工具</h2>
+        <ul>
+            <li><a href="CenteredLayoutCalculator.html">居中排版计算器</a></li>
+        </ul>
+    </div>
 </body>
 </html>
