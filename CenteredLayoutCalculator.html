@@ -17,7 +17,8 @@
             color: #333;
         }
         .container {
-            display: flex;
+            width: 600px;
+            display: block;
             gap: 40px;
             background: #fff;
             padding: 20px;
@@ -30,7 +31,7 @@
             align-items: center;
         }
         textarea, input {
-            width: 320px;
+            width: 550px;
             margin: 8px 0;
             padding: 8px;
             border: 1px solid #ccc;
@@ -64,6 +65,9 @@
             <h2>输入需要进行排版的文本</h2>
             <textarea id="inputText1" placeholder="..."></textarea>
         </div>
+    </div>
+    <hr>
+    <div class="container">
         <div class="section">
             <h2>输入基于您书写习惯的间距参数</h2>
             <label for="inputField1">两个粗笔画之间的间距约为粗笔画宽度的
@@ -75,16 +79,20 @@
                 倍
             </label>
             <label for="inputField3">单词“minimum”的实际宽度约为
-                <input type="number" id="inputField3" min="1" max="100" placeholder="..." style="width: 80px; height: 10px;" value="50">
+                <input type="number" id="inputField3" min="1" max="100" placeholder="..." style="width: 80px; height: 10px;" value="26">
                 毫米
             </label>
             <button onclick="copyContent()">输出</button>
         </div>
+    </div>
+    <hr>
+    <div class="container">
         <div class="section">
             <h2>计算结果</h2>
             <textarea id="outputText" readonly placeholder="..."></textarea>
         </div>
     </div>
+
     <div class="help-text">
             <p>使用说明：</p>
             <p>1. 计算器支持对全小写的文本进行长度估计，除小写字母和空格之外的字符将被忽略；注意大写字母会被转换成小写处理，请自行规划大写字母占据空间。</p>
@@ -93,7 +101,7 @@
     </div>
     <script>
         function copyContent() {
-            let inputText = document.getElementById("inputText1").value + "\n";
+            let inputText = document.getElementById("inputText1").value.toLowerCase() + "\n";
             let spacingFactor1 = parseInt(document.getElementById("inputField1").value);
             if (isNaN(spacingFactor1)) {
                 spacingFactor1 = 2.0;
@@ -113,7 +121,7 @@
 
             let last_c = '\n';
             let sum = 0.0;
-            let factor = wordWidth / (15.0 + 14.0 * spacingFactor1)
+            let factor = wordWidth / (15.0 + 14.0 * spacingFactor1);
             for(let i = 0; i < inputText.length; i += 1)
             {
                 let c = inputText[i];
