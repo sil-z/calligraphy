@@ -95,31 +95,41 @@
         function copyContent() {
             let inputText = document.getElementById("inputText1").value + "\n";
             let spacingFactor1 = parseInt(document.getElementById("inputField1").value);
+            if (isNaN(spacingFactor1)) {
+                spacingFactor1 = 2.0;
+            }
             let spacingFactor2 = parseInt(document.getElementById("inputField2").value);
+            if (isNaN(spacingFactor2)) {
+                spacingFactor2 = 5.0;
+            }
             let wordWidth = parseInt(document.getElementById("inputField3").value);
+            if (isNaN(wordWidth)) {
+                wordWidth = 50.0;
+            }
 
             let content = "";
             let a1 = [2, 1, 1, 2, 1, 1, 2, 2, 1, 1, 2, 1, 3, 2, 1, 2, 2, 1, 1, 1, 2, 1, 2, 1, 2, 2];
             let a2 = [1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 2, 1, 1, 1, 1, 1, 1, 0, 1, 1, 2, 1, 1, 0];
 
             let last_c = '\n';
-            let sum = 0;
+            let sum = 0.0;
+            let factor = wordWidth / (15.0 + 14.0 * spacingFactor1)
             for(let i = 0; i < inputText.length; i += 1)
             {
                 let c = inputText[i];
                 if(c === ' ' || c === '\n')
                     content += sum;
                 if(c === '\n')
-                    sum = 0;
+                    sum = 0.0;
                 content += c;
                 if(c >= 'a' && c <= 'z')
                 {
-                    sum += (a1[c.charCodeAt(0) - 97] + spacingFactor1 * a2[c.charCodeAt(0) - 97]);
+                    sum += ((a1[c.charCodeAt(0) - 97] + spacingFactor1 * a2[c.charCodeAt(0) - 97]) * factor);
                     if(last_c === ' ')
-                        sum += spacingFactor2;
+                        sum += spacingFactor2 * factor;
                     else if(last_c === '\n');
                     else
-                        sum += spacingFactor1;
+                        sum += spacingFactor1 * factor;
                 }
 
                 last_c = c;
