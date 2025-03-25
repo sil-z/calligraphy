@@ -113,10 +113,38 @@
     </div>
     <script>
         function copyContent() {
-            let content = document.getElementById("inputText1").value + "\n";
-            for (let i = 1; i <= 5; i++) {
-                content += document.getElementById("inputField" + i).value + "\n";
+            let inputText = document.getElementById("inputText1").value + "\n";
+            let spacingFactor1 = parseInt(document.getElementById("inputField1").value);
+            let spacingFactor2 = parseInt(document.getElementById("inputField2").value);
+            let wordWidth = parseInt(document.getElementById("inputField3").value);
+
+            let content = "";
+            let a1 = [2, 1, 1, 2, 1, 1, 2, 2, 1, 1, 2, 1, 3, 2, 1, 2, 2, 1, 1, 1, 2, 1, 2, 1, 2, 2];
+            let a2 = [1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 2, 1, 1, 1, 1, 1, 1, 0, 1, 1, 2, 1, 1, 0];
+
+            let last_c = '\n';
+            let sum = 0;
+            for(let i = 0; i < inputText.length; i += 1)
+            {
+                let c = inputText[i];
+                if(c === ' ' || c === '\n')
+                    content += sum;
+                if(c === '\n')
+                    sum = 0;
+                content += c;
+                if(c >= 'a' && c <= 'z')
+                {
+                    sum += (a1[c.charCodeAt(0) - 97] + spacingFactor1 * a2[c.charCodeAt(0) - 97]);
+                    if(last_c === ' ')
+                        sum += spacingFactor2;
+                    else if(last_c === '\n');
+                    else
+                        sum += spacingFactor1;
+                }
+
+                last_c = c;
             }
+            
             document.getElementById("outputText").value = content;
         }
     </script>
