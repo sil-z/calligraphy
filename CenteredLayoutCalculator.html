@@ -17,7 +17,6 @@
             color: #333;
         }
         .container {
-            width: 600px;
             display: block;
             gap: 40px;
             background: #fff;
@@ -25,13 +24,25 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        @media (max-width: 599px) {
+            .container {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .container {
+                width: 800px;
+            }
+        }
         .section {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         textarea, input {
-            width: 550px;
+            width: 90%;
             margin: 8px 0;
             padding: 8px;
             border: 1px solid #ccc;
@@ -39,7 +50,7 @@
             font-size: 1rem;
         }
         textarea {
-            height: 120px;
+            height: 240px;
             resize: none;
         }
         button {
@@ -52,7 +63,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s;
-            width: 100%
+            width: 90%
         }
         button:hover {
             background-color: #0056b3;
@@ -157,7 +168,9 @@
     </div>
     <hr>
     <div class="container">
-        <button onclick="openModal()">使用说明</button>
+        <div class="section">
+            <button onclick="openModal()">使用说明</button>
+        </div>
     </div>
 
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
