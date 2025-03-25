@@ -11,30 +11,56 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            background-color: #f4f4f4;
         }
-        textarea, input {
-            width: 300px;
-            margin: 5px 0;
-            padding: 5px;
-        }
-        textarea {
-            height: 100px;
-        }
-        button {
-            margin: 10px 0;
-            padding: 10px;
-            font-size: 1rem;
+        h1 {
+            color: #333;
         }
         .container {
             display: flex;
-            gap: 20px;
+            gap: 40px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        textarea, input {
+            width: 320px;
+            margin: 8px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <h1>文本框内容拷贝</h1>
     <div class="container">
-        <div>
+        <div class="section">
             <h2>输入内容</h2>
             <textarea id="inputText1" placeholder="输入多行文本..."></textarea>
             <input type="text" id="inputField1" placeholder="输入单行文本 1">
@@ -44,7 +70,7 @@
             <input type="text" id="inputField5" placeholder="输入单行文本 5">
             <button onclick="copyContent()">拷贝内容</button>
         </div>
-        <div>
+        <div class="section">
             <h2>拷贝结果</h2>
             <textarea id="outputText" readonly placeholder="这里将显示拷贝的内容..."></textarea>
         </div>
