@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试</title>
+    <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('font1.ttf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .box {
+            width: 600px;
+            height: 100px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            font-size: 30px;
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-font {
+            font-family: 'CustomFont', sans-serif;
+            font-size: 240px;
+        }
+
+        .default-font {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box custom-font">F</div>
+    <div class="box default-font">A quick brown fox jumps over the lazy dog.</div>
+
+</body>
+</html>
